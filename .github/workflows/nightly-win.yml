@@ -1,15 +1,18 @@
 name: Windows Build
 
 on:
+  push:
+    branches:
+      - main
   pull_request:
   schedule:
     - cron: '30 7 * * 1,5'
   workflow_dispatch:
 
 env:
-  TOOLCHAIN_VERSION: "20250417"
-  TOOLCHAIN_SHA: "a93eb5db7d87985ddf812623b4403953a85be0ef"
-  TOOLCHAIN_FILE: "llvm-mingw-20250417-msvcrt-ubuntu-22.04-x86_64.tar.xz"
+  TOOLCHAIN_VERSION: "20250812"
+  TOOLCHAIN_SHA: "94686c175b47929d574f3d574c8c693a8da42a655d55e6ceccbb97c7af8cf763"
+  TOOLCHAIN_FILE: "llvm-mingw-20250812-msvcrt-ubuntu-22.04-x86_64.tar.xz"
 
 jobs:
   build_mingw_arm:
@@ -21,12 +24,13 @@ jobs:
     - name: Setup Environment
       run: |
         sudo apt-get update
-        sudo apt-get install automake autoconf build-essential intltool libtool libtool-bin make nasm patch tar yasm zlib1g-dev ninja-build gzip pax cmake python3-mesonpy
-        
+        sudo apt-get install automake autoconf build-essential intltool libtool libtool-bin make meson nasm patch tar yasm zlib1g-dev ninja-build gzip pax cmake
+        rustup target add aarch64-pc-windows-gnullvm
+
     - name: Setup Toolchain
       run: |
         wget https://github.com/mstorsjo/llvm-mingw/releases/download/${{ env.TOOLCHAIN_VERSION }}/${{ env.TOOLCHAIN_FILE }}
-        SHA=$(sha1sum ${{ env.TOOLCHAIN_FILE }})
+        SHA=$(sha256sum ${{ env.TOOLCHAIN_FILE }})
         EXPECTED="${{ env.TOOLCHAIN_SHA }}  ${{ env.TOOLCHAIN_FILE }}"
         echo "Calculated SHA: $SHA"
         echo "Expected SHA:  $EXPECTED"
@@ -40,6 +44,11 @@ jobs:
             echo "Toolchain Verification FAILED. Exiting!"
             exit 1
         fi
+
+    - name: Setup Cargo-C Toolchain
+      if: steps.windows-cargo-c-toolchain.outputs.cache-hit != 'true'
+      run: |
+        cargo install cargo-c
 
     - name: Build CLI and LibHB
       run: |
@@ -150,18 +159,18 @@ jobs:
           ~/.cargo/bin/cargo-capi
           ~/.cargo/bin/cargo-cbuild
           ~/.cargo/bin/cargo-cinstall
-        key: windows-cargo-c-toolchain
+        key: ${{ runner.os }}-${{ runner.arch }}-windows-cargo-c-toolchain
 
     - name: Setup Environment
       run: |
         sudo apt-get update
-        sudo apt-get install automake autoconf build-essential intltool libtool libtool-bin make nasm patch tar yasm zlib1g-dev ninja-build gzip pax cmake python3-mesonpy
+        sudo apt-get install automake autoconf build-essential intltool libtool libtool-bin make meson nasm patch tar yasm zlib1g-dev ninja-build gzip pax cmake
         rustup target add x86_64-pc-windows-gnu
 
     - name: Setup Toolchain
       run: |
         wget https://github.com/mstorsjo/llvm-mingw/releases/download/${{ env.TOOLCHAIN_VERSION }}/${{ env.TOOLCHAIN_FILE }}
-        SHA=$(sha1sum ${{ env.TOOLCHAIN_FILE }})
+        SHA=$(sha256sum ${{ env.TOOLCHAIN_FILE }})
         EXPECTED="${{ env.TOOLCHAIN_SHA }}  ${{ env.TOOLCHAIN_FILE }}"
         echo "Calculated SHA: $SHA"
         echo "Expected SHA:  $EXPECTED"
@@ -278,6 +287,7 @@ jobs:
     name: Deploy Nightly Build
     runs-on: ubuntu-latest
     needs: [build_gui_x64, build_gui_arm64]
+    if: github.event_name != 'pull_request' && github.ref == 'refs/heads/main'
     steps:
       - uses: actions/checkout@v4
        

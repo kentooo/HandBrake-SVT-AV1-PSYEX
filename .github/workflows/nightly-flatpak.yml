@@ -3,7 +3,7 @@ name: Flatpak Build
 on:
   push:
     branches:
-      - main
+      - HandBrake-SVT-AV1-Essential
   pull_request:
   schedule:
     - cron:  '30 7 * * 1,5'

@@ -338,17 +338,17 @@ jobs:
         uses: dev-drprasad/delete-older-releases@v0.3.4
         with:
           keep_latest: 0
-          delete_tag_pattern: "win"
+          delete_tag_pattern: "win_psyex_build"
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 
       - uses: ncipollo/release-action@v1
         with:
-          artifacts: "win/*.*"
-          name: "Snapshots for Windows"
+          artifacts: "win_psyex_build/*.*"
+          name: "psyex build for Windows"
           bodyFile: .github/workflows/win_rel_body.md
           prerelease: true
           replacesArtifacts: false
           allowUpdates: false
-          tag: win
+          tag: win_psyex_build
           token: ${{ secrets.GITHUB_TOKEN }}

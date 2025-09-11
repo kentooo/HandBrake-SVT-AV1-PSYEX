@@ -101,17 +101,17 @@ jobs:
         uses: dev-drprasad/delete-older-releases@v0.3.4
         with:
           keep_latest: 0
-          delete_tag_pattern: "flatpak"
+          delete_tag_pattern: "flatpak_psyex_build"
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           
       - uses: ncipollo/release-action@v1
         with:
-          artifacts: "flatpak/*.*"
-          name: "Snapshots for Linux (Flatpak)"
+          artifacts: "flatpak_psyex_build/*.*"
+          name: "psyex build for Linux (Flatpak)"
           bodyFile: .github/workflows/flatpak_rel_body.md
           prerelease: true
           replacesArtifacts: false
           allowUpdates: false
-          tag: flatpak
+          tag: flatpak_psyex_build
           token: ${{ secrets.GITHUB_TOKEN }}

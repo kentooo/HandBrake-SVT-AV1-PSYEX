@@ -74,17 +74,17 @@ jobs:
       uses: dev-drprasad/delete-older-releases@v0.3.4
       with:
         keep_latest: 0
-        delete_tag_pattern: "arch"
+        delete_tag_pattern: "arch_hdr_build"
       env:
         GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           
     - uses: ncipollo/release-action@v1
       with:
         artifacts: "arch/*"
-        name: "Snapshots for Arch Linux"
+        name: "HDR Build for Arch Linux"
         bodyFile: .github/workflows/arch_rel_body.md
         prerelease: true
         replacesArtifacts: false
         allowUpdates: false
-        tag: arch
+        tag: arch_hdr_build
         token: ${{ secrets.GITHUB_TOKEN }}

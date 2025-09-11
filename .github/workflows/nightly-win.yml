@@ -223,7 +223,7 @@ jobs:
 
     - name: Clone and Setup
       run: |
-        git clone https://github.com/HandBrake/HandBrake.git
+        git clone -b preview https://github.com/kentooo/HandBrake.git
         ./patch.sh
         cd HandBrake
         git rev-parse --short HEAD > gitHash.txt
@@ -347,17 +347,17 @@ jobs:
         uses: dev-drprasad/delete-older-releases@v0.3.4
         with:
           keep_latest: 0
-          delete_tag_pattern: "win"
+          delete_tag_pattern: "win_hdr_build"
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 
       - uses: ncipollo/release-action@v1
         with:
           artifacts: "win/*.*"
-          name: "Snapshots for Windows"
+          name: "HDR Build for Windows"
           bodyFile: .github/workflows/win_rel_body.md
           prerelease: true
           replacesArtifacts: false
           allowUpdates: false
-          tag: win
+          tag: win_hdr_build
           token: ${{ secrets.GITHUB_TOKEN }}

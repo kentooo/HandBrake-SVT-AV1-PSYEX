@@ -44,7 +44,7 @@ jobs:
     - name: Build CLI and LibHB
       run: |
         CWDIR=$(pwd)
-        export PATH="$CWDIR/toolchains/llvm-mingw-${{ env.TOOLCHAIN_VERSION }}-msvcrt-ubuntu-22.04-x86_64/bin:${PATH}"
+        export PATH="$CWDIR/toolchains/llvm-mingw-${{ env.TOOLCHAIN_VERSION }}-ucrt-ubuntu-22.04-x86_64/bin:${PATH}"
         export PATH=/usr/bin:$PATH
         git clone https://github.com/HandBrake/HandBrake.git
         ./patch.sh
@@ -184,7 +184,7 @@ jobs:
     - name: Build CLI and LibHB
       run: |
         CWDIR=$(pwd)
-        export PATH="$CWDIR/toolchains/llvm-mingw-${{ env.TOOLCHAIN_VERSION }}-msvcrt-ubuntu-22.04-x86_64/bin:${PATH}"
+        export PATH="$CWDIR/toolchains/llvm-mingw-${{ env.TOOLCHAIN_VERSION }}-ucrt-ubuntu-22.04-x86_64/bin:${PATH}"
         export PATH=/usr/bin:$PATH
         git clone https://github.com/HandBrake/HandBrake.git
         ./patch.sh

@@ -1,6 +1,9 @@
 name: Arch Linux Build
 
 on:
+  push:
+    branches:
+      - main
   pull_request:
   schedule:
     - cron:  '30 7 * * 1,5'
@@ -9,7 +12,7 @@ on:
 jobs:
   build:
     name: Build on Arch
-    runs-on: ubuntu-latest
+    runs-on: ubuntu-24.04
     steps:
     - uses: actions/checkout@v4
 
@@ -77,7 +80,7 @@ jobs:
           
     - uses: ncipollo/release-action@v1
       with:
-        artifacts: "arch_psyex_build/*"
+        artifacts: "arch/*"
         name: "psyex build for Arch Linux"
         bodyFile: .github/workflows/arch_rel_body.md
         prerelease: true

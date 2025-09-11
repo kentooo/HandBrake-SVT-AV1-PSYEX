@@ -8,6 +8,11 @@ pkgname=(
   'handbrake-svt-av1-psy-llvm-optimized-cli'
 )
 
+pkgver() {
+  cd "${srcdir}/HandBrake"
+  git describe --long | sed 's/^v//;s/\([^-]*-g\)/r\1/;s/-/./g'
+}
+
 pkgver=1.9.0
 pkgrel=2
 arch=('x86_64')
@@ -67,19 +72,14 @@ makedepends=(
   "${_guideps[@]}"
 )
 options=('!lto') # https://bugs.archlinux.org/task/72600
-source=("HandBrake::git+https://github.com/HandBrake/HandBrake.git" "HandBrake-SVT-AV1-PSY::git+https://github.com/kentooo/HandBrake-SVT-AV1-PSYEX.git")
+source=("HandBrake::git+https://github.com/kentooo/HandBrake.git#branch=preview" "HandBrake-SVT-AV1-PSY::git+https://github.com/kentooo/HandBrake-SVT-AV1-PSYEX.git#branch=main")
 sha256sums=('SKIP' 'SKIP')
-
-pkgver() {
-  cd "${srcdir}/HandBrake"
-  git describe --long | sed 's/^v//;s/\([^-]*-g\)/r\1/;s/-/./g'
-}
 
 setup_compiler() {
   export CC="/usr/bin/clang"
-  unset CFLAGS
+  export CFLAGS="-O3 -pipe -flto=full"
   export CXX="/usr/bin/clang++"
-  unset CXXFLAGS
+  export CXXFLAGS="-O3 -pipe -flto=full"
   export CPP="/usr/bin/clang-cpp"
   export LD="/usr/bin/lld"
   export LDFLAGS="-fuse-ld=lld"
@@ -107,6 +107,8 @@ build() {
     --lto=on
     --enable-qsv
     --enable-vce
+    --enable-nvdec
+    --enable-nvenc
   )
 
   cd "${srcdir}/HandBrake" || exit

@@ -1,11 +1,14 @@
 name: macOS build
 
 on:
+  push:
+    branches:
+      - main
   pull_request:
   schedule:
     - cron:  '30 7 * * 1,5'
-  workflow_dispatch: 
-   
+  workflow_dispatch:
+
 jobs:
   build:
     name: Build on macOS
@@ -108,7 +111,7 @@ jobs:
           
       - uses: ncipollo/release-action@v1
         with:
-          artifacts: "mac_psyex_build/*.*"
+          artifacts: "mac/*.*"
           name: "psyex build for macOS"
           bodyFile: .github/workflows/mac_rel_body.md
           prerelease: true

@@ -40,7 +40,7 @@ jobs:
 
     - name: Download the Source Code
       run: |
-        git clone https://github.com/HandBrake/HandBrake.git
+        git clone -b preview https://github.com/kentooo/HandBrake.git
         ./patch.sh
 
     - name: Setup Environment

@@ -29,7 +29,7 @@ jobs:
     - name: Setup Cargo-C Toolchain
       if: steps.linux-cargo-c-toolchain.outputs.cache-hit != 'true'
       run: |
-        cargo install cargo-c
+        cargo install cargo-c --force
 
     - name: Build HandBrake Arch Linux
       id: makepkg

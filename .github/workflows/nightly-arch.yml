@@ -74,7 +74,7 @@ jobs:
       uses: dev-drprasad/delete-older-releases@v0.3.4
       with:
         keep_latest: 0
-        delete_tag_pattern: "archlinux_psyex_build"
+        delete_tag_pattern: "arch_psyex_build"
       env:
         GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           

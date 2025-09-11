@@ -3,7 +3,7 @@ name: Arch Linux Build
 on:
   push:
     branches:
-      - main
+      - handbrake-svt-av1-hdr
   pull_request:
   schedule:
     - cron:  '30 7 * * 1,5'

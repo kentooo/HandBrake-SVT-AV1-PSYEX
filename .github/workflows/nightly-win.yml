@@ -3,16 +3,16 @@ name: Windows Build
 on:
   push:
     branches:
-      - main
+      - handbrake-svt-av1-hdr
   pull_request:
   schedule:
     - cron: '30 7 * * 1,5'
   workflow_dispatch:
 
 env:
-  TOOLCHAIN_VERSION: "20250812"
-  TOOLCHAIN_SHA: "94686c175b47929d574f3d574c8c693a8da42a655d55e6ceccbb97c7af8cf763"
-  TOOLCHAIN_FILE: "llvm-mingw-20250812-msvcrt-ubuntu-22.04-x86_64.tar.xz"
+  TOOLCHAIN_VERSION: "20250910"
+  TOOLCHAIN_SHA: "f83556c9ffa4d4291fadea1a0776c1383332dacdf4d7fbdf974c2928cb32c6f7"
+  TOOLCHAIN_FILE: "llvm-mingw-20250910-ucrt-ubuntu-22.04-x86_64.tar.xz"
 
 jobs:
   build_mingw_arm:

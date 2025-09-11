@@ -113,7 +113,7 @@ jobs:
       - uses: ncipollo/release-action@v1
         with:
           artifacts: "ubuntu/*"
-          name: "psyex build for Ubuntu"
+          name: "PSYEX Build for Ubuntu"
           bodyFile: .github/workflows/ubuntu_rel_body.md
           prerelease: true
           replacesArtifacts: false

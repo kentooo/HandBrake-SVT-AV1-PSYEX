@@ -49,7 +49,7 @@ jobs:
         CWDIR=$(pwd)
         export PATH="$CWDIR/toolchains/llvm-mingw-${{ env.TOOLCHAIN_VERSION }}-ucrt-ubuntu-22.04-x86_64/bin:${PATH}"
         export PATH=/usr/bin:$PATH
-        git clone https://github.com/HandBrake/HandBrake.git
+        git clone -b preview https://github.com/kentooo/HandBrake.git
         ./patch.sh
         cd HandBrake
         ./configure --cross=aarch64-w64-mingw32 --enable-mf --launch-jobs=0 --launch
@@ -77,7 +77,7 @@ jobs:
 
     - name: Clone and Setup
       run: |
-        git clone https://github.com/HandBrake/HandBrake.git
+        git clone -b preview https://github.com/kentooo/HandBrake.git
         ./patch.sh
         cd HandBrake
         git rev-parse --short HEAD > gitHash.txt
@@ -189,7 +189,7 @@ jobs:
         CWDIR=$(pwd)
         export PATH="$CWDIR/toolchains/llvm-mingw-${{ env.TOOLCHAIN_VERSION }}-ucrt-ubuntu-22.04-x86_64/bin:${PATH}"
         export PATH=/usr/bin:$PATH
-        git clone https://github.com/HandBrake/HandBrake.git
+        git clone -b preview https://github.com/kentooo/HandBrake.git
         ./patch.sh
         cd HandBrake
         ./configure --cross=x86_64-w64-mingw32 --enable-qsv --enable-vce --enable-nvenc --enable-nvdec --launch-jobs=0 --launch
@@ -348,7 +348,7 @@ jobs:
       - uses: ncipollo/release-action@v1
         with:
           artifacts: "win/*.*"
-          name: "psyex build for Windows"
+          name: "PSYEX Build for Windows"
           bodyFile: .github/workflows/win_rel_body.md
           prerelease: true
           replacesArtifacts: false

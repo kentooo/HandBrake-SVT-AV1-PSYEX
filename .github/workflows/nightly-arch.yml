@@ -81,7 +81,7 @@ jobs:
     - uses: ncipollo/release-action@v1
       with:
         artifacts: "arch/*"
-        name: "psyex build for Arch Linux"
+        name: "PSYEX Build for Arch Linux"
         bodyFile: .github/workflows/arch_rel_body.md
         prerelease: true
         replacesArtifacts: false

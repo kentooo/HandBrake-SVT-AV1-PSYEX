@@ -112,7 +112,7 @@ jobs:
       - uses: ncipollo/release-action@v1
         with:
           artifacts: "mac/*.*"
-          name: "psyex build for macOS"
+          name: "PSYEX Build for macOS"
           bodyFile: .github/workflows/mac_rel_body.md
           prerelease: true
           replacesArtifacts: false

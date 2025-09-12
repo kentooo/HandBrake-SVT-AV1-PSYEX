@@ -62,7 +62,7 @@ jobs:
           name: HandBrakeGUI
           path: arch/
         
-      - name: Download Artifacts - GUI Arch Linux
+      - name: Download Artifacts - CLI Arch Linux
         uses: actions/download-artifact@v4
         with:
           name: HandBrakeCLI

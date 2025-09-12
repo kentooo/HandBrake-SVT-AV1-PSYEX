@@ -75,7 +75,7 @@ jobs:
 
   deploy_nightly:
     name: Deploy Nightly Build
-    runs-on: ubuntu-latest
+    runs-on: ubuntu-24.04
     needs: build
     if: github.event_name != 'pull_request'
     steps:

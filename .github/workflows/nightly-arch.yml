@@ -35,11 +35,17 @@ jobs:
       id: makepkg
       uses: edlanglois/pkgbuild-action@v1.1.9
 
-    - name: Upload HandBrake-SVT-AV1-PSY Archive
+    - name: Upload HandBrake GUI
       uses: actions/upload-artifact@v4
       with:
-        name: HandBrakePKG
+        name: HandBrake GUI
         path: ${{ steps.makepkg.outputs.pkgfile0 }}
+    
+    - name: Upload HandBrake CLI
+      uses: actions/upload-artifact@v4
+      with:
+        name: HandBrake CLI
+        path: ${{ steps.makepkg.outputs.pkgfile1 }}
 
 
   deploy_nightly:

@@ -44,7 +44,7 @@ jobs:
             org.freedesktop.Platform//25.08 \
             org.gnome.Platform//49 \
             org.gnome.Sdk//49 \
-            org.freedesktop.Sdk.Extension.llvm18//25.08 \
+            org.freedesktop.Sdk.Extension.llvm21//25.08 \
             org.freedesktop.Sdk.Extension.rust-stable//25.08
         sudo apt-get upgrade -y
 

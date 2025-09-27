@@ -14,7 +14,7 @@ jobs:
     name: Build on Ubuntu
     runs-on: ubuntu-24.04
     steps:
-    - uses: actions/checkout@v4
+    - uses: actions/checkout@v5
 
     - name: Cargo-C Toolchain Cache
       id: linux-cargo-c-toolchain
@@ -74,16 +74,16 @@ jobs:
     needs: build
     if: github.event_name != 'pull_request'
     steps:
-      - uses: actions/checkout@v4
+      - uses: actions/checkout@v5
        
       - name: Download Artifacts - CLI Ubuntu
-        uses: actions/download-artifact@v4
+        uses: actions/download-artifact@v5
         with:
           name: HandBrakeCLI
           path: ubuntu/
 
       - name: Download Artifacts - GUI Ubuntu
-        uses: actions/download-artifact@v4
+        uses: actions/download-artifact@v5
         with:
           name: HandBrakeGUI
           path: ubuntu/

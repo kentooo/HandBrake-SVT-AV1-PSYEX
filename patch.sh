@@ -28,7 +28,7 @@ for (( i=1; i <= "$#"; i++ )); do
 				exit 1
 			fi
 			rm -rf HandBrake
-			git clone https://github.com/HandBrake/HandBrake.git
+			git clone -b preview https://github.com/kentooo/HandBrake.git
 			;;
 		-*)
 			echo "${!i} option doesn't exists!"

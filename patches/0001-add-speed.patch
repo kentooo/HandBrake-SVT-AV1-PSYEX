@@ -13,23 +13,23 @@ index 54f52a1..b73643b 100644
 -    {
 -        param->enc_mode = atoi(job->encoder_preset);
 +    {   
-+        if (!strcasecmp(job->encoder_preset, "slower"))
++        if (!strcasecmp(job->encoder_preset, "2-slower"))
 +        {
 +            param->enc_mode = 2;
 +        }
-+        else if (!strcasecmp(job->encoder_preset, "slow"))
++        else if (!strcasecmp(job->encoder_preset, "4-slow"))
 +        {
 +            param->enc_mode = 4;
 +        }
-+        else if (!strcasecmp(job->encoder_preset, "medium"))
++        else if (!strcasecmp(job->encoder_preset, "5-medium"))
 +        {
 +            param->enc_mode = 5;
 +        }
-+        else if (!strcasecmp(job->encoder_preset, "fast"))
++        else if (!strcasecmp(job->encoder_preset, "6-fast"))
 +        {
 +            param->enc_mode = 6;
 +        }
-+        else if (!strcasecmp(job->encoder_preset, "faster"))
++        else if (!strcasecmp(job->encoder_preset, "8-faster"))
 +        {
 +            param->enc_mode = 8;
 +        }

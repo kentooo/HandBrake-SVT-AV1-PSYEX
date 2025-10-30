@@ -78,7 +78,7 @@ jobs:
         make ub && make pkg.create
 
     - name: Upload Assets
-      uses: actions/upload-artifact@v4
+      uses: actions/upload-artifact@v5
       with:
         name: HandBrake-macos
         path: ./HandBrake/build/pkg/*.dmg
@@ -93,7 +93,7 @@ jobs:
       - uses: actions/checkout@v5
        
       - name: Download Artifacts - Universal Binaries
-        uses: actions/download-artifact@v5
+        uses: actions/download-artifact@v6
         with:
           name: HandBrake-macos
           path: mac/

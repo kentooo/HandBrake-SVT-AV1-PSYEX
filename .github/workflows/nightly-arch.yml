@@ -36,13 +36,13 @@ jobs:
       uses: edlanglois/pkgbuild-action@v1.1.9
 
     - name: Upload HandBrake GUI
-      uses: actions/upload-artifact@v4
+      uses: actions/upload-artifact@v5
       with:
         name: HandBrakeGUI
         path: ${{ steps.makepkg.outputs.pkgfile0 }}
     
     - name: Upload HandBrake CLI
-      uses: actions/upload-artifact@v4
+      uses: actions/upload-artifact@v5
       with:
         name: HandBrakeCLI
         path: ${{ steps.makepkg.outputs.pkgfile1 }}
@@ -57,13 +57,13 @@ jobs:
       - uses: actions/checkout@v5
        
       - name: Download Artifacts - GUI Arch Linux
-        uses: actions/download-artifact@v5
+        uses: actions/download-artifact@v6
         with:
           name: HandBrakeGUI
           path: arch/
         
       - name: Download Artifacts - CLI Arch Linux
-        uses: actions/download-artifact@v5
+        uses: actions/download-artifact@v6
         with:
           name: HandBrakeCLI
           path: arch/

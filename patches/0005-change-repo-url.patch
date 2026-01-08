@@ -1,5 +1,5 @@
 diff --git a/contrib/svt-av1/module.defs b/contrib/svt-av1/module.defs
-index a63058238..d228e0108 100644
+index a63058238..4ad443f2f 100644
 --- a/contrib/svt-av1/module.defs
 +++ b/contrib/svt-av1/module.defs
 @@ -1,9 +1,8 @@
@@ -13,3 +13,19 @@ index a63058238..d228e0108 100644
 +SVT-AV1.FETCH.sha256  = bcae787771504cb804f2e24398c08f90a9adb3a75e41db21f5aefeac608fb777
  
  SVT-AV1.GCC.args.c_std =
+ 
+@@ -26,11 +25,9 @@ else
+     endif
+ endif
+ 
+-ifeq (on,$(GCC.lto))
+-    SVT-AV1.CONFIGURE.extra += -DSVT_AV1_LTO=ON
+-else ifeq (off,$(GCC.lto))
+-    SVT-AV1.CONFIGURE.extra += -DSVT_AV1_LTO=OFF
+-endif
++SVT-AV1.CONFIGURE.extra += -DSVT_AV1_LTO=ON
++SVT-AV1.CONFIGURE.extra += -DCMAKE_CXX_FLAGS_RELEASE="-flto -DNDEBUG -pipe -O3"
++SVT-AV1.CONFIGURE.extra += -DCMAKE_C_FLAGS_RELEASE="-flto -DNDEBUG -pipe -O3"
+ 
+ ifeq (native,$(GCC.cpu))
+     SVT-AV1.CONFIGURE.extra += -DNATIVE=ON

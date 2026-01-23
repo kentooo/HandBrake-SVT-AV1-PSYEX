@@ -1,5 +1,5 @@
 diff --git a/contrib/svt-av1/module.defs b/contrib/svt-av1/module.defs
-index a63058238..9cc02096b 100644
+index a63058238..f9a516455 100644
 --- a/contrib/svt-av1/module.defs
 +++ b/contrib/svt-av1/module.defs
 @@ -1,9 +1,8 @@
@@ -10,22 +10,7 @@ index a63058238..9cc02096b 100644
 -SVT-AV1.FETCH.url    += https://gitlab.com/AOMediaCodec/SVT-AV1/-/archive/v3.1.2/SVT-AV1-v3.1.2.tar.gz
 -SVT-AV1.FETCH.sha256  = d0d73bfea42fdcc1222272bf2b0e2319e9df5574721298090c3d28315586ecb1
 +SVT-AV1.FETCH.url     = https://github.com/kentooo/HandBrake-SVT-AV1-PSYEX/releases/download/contribs/svt-av1-hdr.tar.gz
-+SVT-AV1.FETCH.sha256  = 07404354c75a05bfdb8943ee9c0c7a1bca112de3b36d4eff098914ce4804f29d
++SVT-AV1.FETCH.sha256  = 9eb49bffdaaf970476b27e604839b85f5db5302a200af6e3c741426742f8cc29
  
  SVT-AV1.GCC.args.c_std =
  
-@@ -26,11 +25,9 @@ else
-     endif
- endif
- 
--ifeq (on,$(GCC.lto))
--    SVT-AV1.CONFIGURE.extra += -DSVT_AV1_LTO=ON
--else ifeq (off,$(GCC.lto))
--    SVT-AV1.CONFIGURE.extra += -DSVT_AV1_LTO=OFF
--endif
-+SVT-AV1.CONFIGURE.extra += -DSVT_AV1_LTO=ON
-+SVT-AV1.CONFIGURE.extra += -DCMAKE_CXX_FLAGS_RELEASE="-flto -DNDEBUG -pipe -O3"
-+SVT-AV1.CONFIGURE.extra += -DCMAKE_C_FLAGS_RELEASE="-flto -DNDEBUG -pipe -O3"
- 
- ifeq (native,$(GCC.cpu))
-     SVT-AV1.CONFIGURE.extra += -DNATIVE=ON

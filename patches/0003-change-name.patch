@@ -1,5 +1,5 @@
 diff --git a/libhb/common.c b/libhb/common.c
-index 1c43c7a7f..9f2957d21 100644
+index 0e2856280..ac2ca56e1 100644
 --- a/libhb/common.c
 +++ b/libhb/common.c
 @@ -283,8 +283,8 @@ hb_encoder_internal_t hb_video_encoders[]  =

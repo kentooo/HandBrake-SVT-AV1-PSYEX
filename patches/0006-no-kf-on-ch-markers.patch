@@ -1,8 +1,8 @@
 diff --git a/libhb/encsvtav1.c b/libhb/encsvtav1.c
-index d9ce3f534..592846fa7 100644
+index 31f4b8aae..2e7111b0c 100644
 --- a/libhb/encsvtav1.c
 +++ b/libhb/encsvtav1.c
-@@ -522,16 +522,10 @@ static int send(hb_work_object_t *w, hb_buffer_t *in)
+@@ -539,16 +539,10 @@ static int send(hb_work_object_t *w, hb_buffer_t *in)
  
      if (in->s.new_chap > 0 && pv->job->chapter_markers)
      {

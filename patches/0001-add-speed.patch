@@ -1,8 +1,16 @@
 diff --git a/libhb/encsvtav1.c b/libhb/encsvtav1.c
-index 7da8b440a..4057a2374 100644
+index 7da8b440a..31f4b8aae 100644
 --- a/libhb/encsvtav1.c
 +++ b/libhb/encsvtav1.c
-@@ -112,11 +112,30 @@ int encsvtInit(hb_work_object_t *w, hb_job_t *job)
+@@ -27,7 +27,6 @@ void encsvtClose(hb_work_object_t *);
+ #define FRAME_INFO_SIZE 2048
+ #define FRAME_INFO_MASK (FRAME_INFO_SIZE - 1)
+ 
+-#define MAX_QP_VALUE 63
+ 
+ hb_work_object_t hb_encsvtav1 =
+ {
+@@ -112,11 +111,30 @@ int encsvtInit(hb_work_object_t *w, hb_job_t *job)
  
      if (job->encoder_preset == NULL)
      {
@@ -35,3 +43,13 @@ index 7da8b440a..4057a2374 100644
      }
  
      if (job->vquality <= HB_INVALID_VIDEO_QUALITY)
+@@ -126,8 +144,7 @@ int encsvtInit(hb_work_object_t *w, hb_job_t *job)
+     }
+     else
+     {
+-        param->qp                         = fmin(job->vquality, MAX_QP_VALUE); // truncated 
+-        param->extended_crf_qindex_offset = (job->vquality - param->qp) * 4;
++        param->qp                = job->vquality;
+         param->rate_control_mode = SVT_AV1_RC_MODE_CQP_OR_CRF;
+         param->force_key_frames = 1;
+     }

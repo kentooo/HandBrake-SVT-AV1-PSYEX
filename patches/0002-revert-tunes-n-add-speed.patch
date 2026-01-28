@@ -1,16 +1,17 @@
 diff --git a/libhb/encsvtav1.c b/libhb/encsvtav1.c
-index 7da8b440a..31f4b8aae 100644
+index 7da8b440a..86b6ee395 100644
 --- a/libhb/encsvtav1.c
 +++ b/libhb/encsvtav1.c
-@@ -27,7 +27,6 @@ void encsvtClose(hb_work_object_t *);
+@@ -27,8 +27,6 @@ void encsvtClose(hb_work_object_t *);
  #define FRAME_INFO_SIZE 2048
  #define FRAME_INFO_MASK (FRAME_INFO_SIZE - 1)
  
 -#define MAX_QP_VALUE 63
- 
+-
  hb_work_object_t hb_encsvtav1 =
  {
-@@ -112,11 +111,30 @@ int encsvtInit(hb_work_object_t *w, hb_job_t *job)
+     WORK_ENCSVTAV1,
+@@ -112,11 +110,30 @@ int encsvtInit(hb_work_object_t *w, hb_job_t *job)
  
      if (job->encoder_preset == NULL)
      {
@@ -43,7 +44,7 @@ index 7da8b440a..31f4b8aae 100644
      }
  
      if (job->vquality <= HB_INVALID_VIDEO_QUALITY)
-@@ -126,8 +144,7 @@ int encsvtInit(hb_work_object_t *w, hb_job_t *job)
+@@ -126,8 +143,7 @@ int encsvtInit(hb_work_object_t *w, hb_job_t *job)
      }
      else
      {
@@ -53,3 +54,34 @@ index 7da8b440a..31f4b8aae 100644
          param->rate_control_mode = SVT_AV1_RC_MODE_CQP_OR_CRF;
          param->force_key_frames = 1;
      }
+@@ -187,15 +203,7 @@ int encsvtInit(hb_work_object_t *w, hb_job_t *job)
+         }
+     }
+ 
+-    if (job->encoder_tune != NULL && strstr("ms-ssim", job->encoder_tune) != NULL)
+-    {
+-        param->tune = 4;
+-    }
+-    else if (job->encoder_tune != NULL && strstr("iq", job->encoder_tune) != NULL)
+-    {
+-        param->tune = 3;
+-    }
+-    else if (job->encoder_tune != NULL && strstr("ssim", job->encoder_tune) != NULL)
++    if (job->encoder_tune != NULL && strstr("ssim", job->encoder_tune) != NULL)
+     {
+         param->tune = 2;
+     }
+
+diff --git a/libhb/handbrake/av1_common.h b/libhb/handbrake/av1_common.h
+index 50ea96fd0..f6fd448c1 100644
+--- a/libhb/handbrake/av1_common.h
++++ b/libhb/handbrake/av1_common.h
+@@ -31,7 +31,7 @@ static const char * const hb_av1_svt_preset_names[] =
+ 
+ static const char * const hb_av1_svt_tune_names[] =
+ {
+-    "vq", "psnr", "ssim", "iq", "ms-ssim", "fastdecode", NULL
++    "vq", "psnr", "ssim", "fastdecode", NULL
+ };
+ 
+ static const char * const hb_av1_svt_profile_names[] =

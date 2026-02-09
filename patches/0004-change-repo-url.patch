@@ -1,5 +1,5 @@
 diff --git a/contrib/svt-av1/module.defs b/contrib/svt-av1/module.defs
-index 59bfc1279..4a0db4d7d 100644
+index 59bfc1279..a89f25998 100644
 --- a/contrib/svt-av1/module.defs
 +++ b/contrib/svt-av1/module.defs
 @@ -1,9 +1,8 @@
@@ -10,6 +10,6 @@ index 59bfc1279..4a0db4d7d 100644
 -SVT-AV1.FETCH.url    += https://gitlab.com/AOMediaCodec/SVT-AV1/-/archive/v4.0.1/SVT-AV1-v4.0.1.tar.gz
 -SVT-AV1.FETCH.sha256  = 9c0f9a4327334c40a76d2f39940d8a1b2dd8b1358375a11c4715d516b90a65cb
 +SVT-AV1.FETCH.url     = https://github.com/kentooo/HandBrake-SVT-AV1-PSYEX/releases/download/contribs/svt-av1-hdr.tar.gz
-+SVT-AV1.FETCH.sha256  = 7a8655a82a1a8d497a546c8f1a7fd3b1dc2c699e69ffd154380f663a43a8e3e5
++SVT-AV1.FETCH.sha256  = 460e855661e69902b89dc15ce4011824a015c14edaba941d4e0ffc569e591cc5
  
  SVT-AV1.GCC.args.c_std =

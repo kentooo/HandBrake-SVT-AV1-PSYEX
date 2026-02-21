@@ -1,13 +1,13 @@
 diff --git a/libhb/encsvtav1.c b/libhb/encsvtav1.c
-index 7da8b440a..c5748def0 100644
+index 217dc0d76..f8ae7d278 100644
 --- a/libhb/encsvtav1.c
 +++ b/libhb/encsvtav1.c
 @@ -187,7 +187,7 @@ int encsvtInit(hb_work_object_t *w, hb_job_t *job)
          }
      }
  
--    if (job->encoder_tune != NULL && strstr("ms-ssim", job->encoder_tune) != NULL)
-+    if (job->encoder_tune != NULL && strstr("grain", job->encoder_tune) != NULL)
+-    if (job->encoder_tune != NULL && strstr(job->encoder_tune, "ms-ssim") != NULL)
++    if (job->encoder_tune != NULL && strstr(job->encoder_tune, "grain") != NULL)
      {
          param->tune = 4;
      }

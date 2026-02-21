@@ -1,5 +1,5 @@
 diff --git a/libhb/encsvtav1.c b/libhb/encsvtav1.c
-index d9ce3f534..592846fa7 100644
+index 217dc0d76..9ba7a6dce 100644
 --- a/libhb/encsvtav1.c
 +++ b/libhb/encsvtav1.c
 @@ -522,16 +522,10 @@ static int send(hb_work_object_t *w, hb_buffer_t *in)

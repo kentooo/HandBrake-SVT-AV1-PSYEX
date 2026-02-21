@@ -1,5 +1,5 @@
 diff --git a/libhb/handbrake/av1_common.h b/libhb/handbrake/av1_common.h
-index 904bdc79f..3b6936399 100644
+index 50ea96fd0..2ca8d592b 100644
 --- a/libhb/handbrake/av1_common.h
 +++ b/libhb/handbrake/av1_common.h
 @@ -26,7 +26,7 @@ static const int          hb_av1_level_values[] = {

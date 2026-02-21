@@ -1,5 +1,5 @@
 diff --git a/libhb/encsvtav1.c b/libhb/encsvtav1.c
-index 7da8b440a..86b6ee395 100644
+index 217dc0d76..3d4e6b5fc 100644
 --- a/libhb/encsvtav1.c
 +++ b/libhb/encsvtav1.c
 @@ -27,8 +27,6 @@ void encsvtClose(hb_work_object_t *);
@@ -58,16 +58,16 @@ index 7da8b440a..86b6ee395 100644
          }
      }
  
--    if (job->encoder_tune != NULL && strstr("ms-ssim", job->encoder_tune) != NULL)
+-    if (job->encoder_tune != NULL && strstr(job->encoder_tune, "ms-ssim") != NULL)
 -    {
 -        param->tune = 4;
 -    }
--    else if (job->encoder_tune != NULL && strstr("iq", job->encoder_tune) != NULL)
+-    else if (job->encoder_tune != NULL && strstr(job->encoder_tune, "iq") != NULL)
 -    {
 -        param->tune = 3;
 -    }
--    else if (job->encoder_tune != NULL && strstr("ssim", job->encoder_tune) != NULL)
-+    if (job->encoder_tune != NULL && strstr("ssim", job->encoder_tune) != NULL)
+-    else if (job->encoder_tune != NULL && strstr(job->encoder_tune, "ssim") != NULL)
++    if (job->encoder_tune != NULL && strstr(job->encoder_tune, "ssim") != NULL)
      {
          param->tune = 2;
      }
@@ -85,3 +85,4 @@ index 50ea96fd0..f6fd448c1 100644
  };
  
  static const char * const hb_av1_svt_profile_names[] =
+

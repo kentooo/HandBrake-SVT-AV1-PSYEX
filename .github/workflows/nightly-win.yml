@@ -10,9 +10,9 @@ on:
   workflow_dispatch:
 
 env:
-  TOOLCHAIN_VERSION: "20260210"
-  TOOLCHAIN_SHA: "6e1e0611e337e3d0500f231cb2faa431119ad7f07ed757427b690fd960bb11db"
-  TOOLCHAIN_FILE: "llvm-mingw-20260210-ucrt-ubuntu-22.04-x86_64.tar.xz"
+  TOOLCHAIN_VERSION: "20260224"
+  TOOLCHAIN_SHA: "b89daa0c8eb79e7c8e887fd2ab2b89f99e82c3f1dedab0d2efaa1563a43ad534"
+  TOOLCHAIN_FILE: "llvm-mingw-20260224-ucrt-ubuntu-22.04-x86_64.tar.xz"
 
 jobs:
   build_mingw_arm:

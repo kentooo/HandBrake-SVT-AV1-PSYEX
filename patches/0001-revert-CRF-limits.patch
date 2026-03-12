@@ -1,5 +1,5 @@
 diff --git a/libhb/common.c b/libhb/common.c
-index 149121740..72ba5c7b0 100644
+index c6603444c..c793660d0 100644
 --- a/libhb/common.c
 +++ b/libhb/common.c
 @@ -1706,18 +1706,12 @@ void hb_video_quality_get_limits(uint32_t codec, float *low, float *high,

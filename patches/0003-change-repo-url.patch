@@ -1,14 +1,14 @@
 diff --git a/contrib/svt-av1/module.defs b/contrib/svt-av1/module.defs
-index 59bfc1279..ade31f690 100644
+index 992313921..ade31f690 100644
 --- a/contrib/svt-av1/module.defs
 +++ b/contrib/svt-av1/module.defs
 @@ -1,9 +1,8 @@
  $(eval $(call import.MODULE.defs,SVT-AV1,svt-av1))
  $(eval $(call import.CONTRIB.defs,SVT-AV1))
  
--SVT-AV1.FETCH.url     = https://github.com/HandBrake/HandBrake-contribs/releases/download/contribs2/SVT-AV1-v4.0.1.tar.gz
--SVT-AV1.FETCH.url    += https://gitlab.com/AOMediaCodec/SVT-AV1/-/archive/v4.0.1/SVT-AV1-v4.0.1.tar.gz
--SVT-AV1.FETCH.sha256  = 9c0f9a4327334c40a76d2f39940d8a1b2dd8b1358375a11c4715d516b90a65cb
+-SVT-AV1.FETCH.url     = https://github.com/HandBrake/HandBrake-contribs/releases/download/contribs2/SVT-AV1-v4.1.0.tar.gz
+-SVT-AV1.FETCH.url    += https://gitlab.com/AOMediaCodec/SVT-AV1/-/archive/v4.1.0/SVT-AV1-v4.1.0.tar.gz
+-SVT-AV1.FETCH.sha256  = 6c4c0c44ff0ba3d136d6f57f3a707f9de8e9c866f50f809c1d22a43f0d8c9583
 +SVT-AV1.FETCH.url     = https://github.com/kentooo/HandBrake-SVT-AV1-PSYEX/releases/download/contribs/svt-av1-psyex.tar.gz
 +SVT-AV1.FETCH.sha256  = 5e1309ff986695bec1705e4920f3fe7db72d3b11846ce233c2ea9af192ce4373
  
